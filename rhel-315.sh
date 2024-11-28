@@ -27,7 +27,7 @@ fi
 
 # Ustawienie adresu MAC
 echo "Przypisywanie adresu MAC $NEW_MAC do VM $NEW_VM_ID..."
-qm set $NEW_VM_ID --net0 model=virtio,macaddr=$NEW_MAC
+qm set $NEW_VM_ID --net0 model=virtio,macaddr=$NEW_MAC,bridge=vmbr0
 if [ $? -ne 0 ]; then
   echo "Błąd podczas przypisywania adresu MAC."
   exit 1
